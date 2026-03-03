@@ -2,5 +2,5 @@
 
 public interface IBezierCurve
 {
-    Point2D Evaluate(float t);
+    Vector2 Evaluate(float t);
 }

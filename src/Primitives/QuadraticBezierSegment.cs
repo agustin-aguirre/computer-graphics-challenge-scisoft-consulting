@@ -5,15 +5,15 @@ namespace GraphicsEngine.Primitives;
 
 public class QuadraticBezierSegment : LinearBezierSegment
 {
-    public Point2D P2 { get; set; }
+    public Vector2 P2 { get; set; }
 
-    public QuadraticBezierSegment(Point2D p0, Point2D p1, Point2D p2) : base(p0, p1)
+    public QuadraticBezierSegment(Vector2 p0, Vector2 p1, Vector2 p2) : base(p0, p1)
     {
         P2 = p2;
     }
 
 
-    protected override Func<float, Point2D> GetEvaluator()
+    protected override Func<float, Vector2> GetEvaluator()
     {
         return (float t) =>
         {

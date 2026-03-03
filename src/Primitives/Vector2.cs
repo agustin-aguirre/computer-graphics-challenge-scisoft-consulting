@@ -2,36 +2,36 @@
 
 namespace GraphicsEngine.Primitives;
 
-public class Point2D
+public class Vector2
 {
     public float X { get; set; } = 0f;
     public float Y { get; set; } = 0f;
 
 
-    public Point2D() { }
+    public Vector2() { }
 
-    public Point2D(float x, float y)
+    public Vector2(float x, float y)
     {
         X = x;
         Y = y;
     }
 
-    public static Point2D operator + (Point2D p0, Point2D p1)
+    public static Vector2 operator + (Vector2 p0, Vector2 p1)
     {
-        return new Point2D(p0.X + p1.X, p0.Y + p1.Y);
+        return new Vector2(p0.X + p1.X, p0.Y + p1.Y);
     }
 
-    public static Point2D operator * (float k, Point2D p)
+    public static Vector2 operator * (float k, Vector2 p)
     {
-        return new Point2D(p.X * k, p.Y * k);
+        return new Vector2(p.X * k, p.Y * k);
     }
 
-    public static Point2D operator * (Point2D p, float k)
+    public static Vector2 operator * (Vector2 p, float k)
     {
         return k * p;
     }
 
-    public static Point2D operator - (Point2D p0, Point2D p1)
+    public static Vector2 operator - (Vector2 p0, Vector2 p1)
     {
         return p0 + -1f * p1;
     }
@@ -50,17 +50,17 @@ public class Point2D
         Y = roundedPoint.Y;
     }
 
-    public Point2D RoundedUp(int decimals)
+    public Vector2 RoundedUp(int decimals)
     {
-        return new Point2D(
+        return new Vector2(
             FloatUtils.RoundUp(X, decimals),
             FloatUtils.RoundUp(Y, decimals)
         );
     }
 
-    public Point2D RoundedDown(int decimals)
+    public Vector2 RoundedDown(int decimals)
     {
-        return new Point2D(
+        return new Vector2(
             FloatUtils.RoundDown(X, decimals),
             FloatUtils.RoundDown(Y, decimals)
         );
@@ -68,7 +68,7 @@ public class Point2D
 
     public override bool Equals(object? obj)
     {
-        return obj is Point2D d &&
+        return obj is Vector2 d &&
                X == d.X &&
                Y == d.Y;
     }
