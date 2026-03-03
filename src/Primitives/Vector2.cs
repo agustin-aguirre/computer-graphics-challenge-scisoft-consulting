@@ -32,12 +32,12 @@ public class Vector2
 
     public static float Angle(Vector2 v1, Vector2 v2)
     {
-        return MathF.Atan2(v2.X - v1.X, v2.Y - v1.Y);
+        return MathF.Acos(Dot(v1, v2)/ (v1.Magnitude * v2.Magnitude));
     }
 
     public static float Dot(Vector2 v1, Vector2 v2)
     {
-        return v1.Magnitude * v2.Magnitude * MathF.Cos(Angle(v1, v2));
+        return v1.X * v2.X + v1.Y * v2.Y;
     }
 
 
