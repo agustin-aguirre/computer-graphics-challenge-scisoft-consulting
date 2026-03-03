@@ -16,7 +16,7 @@ public class BezierSegmentsTests
     public void LinearBezierSegment_WhenEvaluated_CalculatesTheCurveCorrectly()
     {
         // Arrange
-        IBezierCurve b = new LinearBezierSegment(p0, p1);
+        IBezierCurve b = new LinearBezier(p0, p1);
 
         // Act
         Vector2[] results = runCurveEvaluation(b);
@@ -39,7 +39,7 @@ public class BezierSegmentsTests
     public void QuadraticBezierSegment_WhenEvaluated_CalculatesTheCurveCorrectly()
     {
         // Arrange
-        IBezierCurve b = new QuadraticBezierSegment(p0, p1, p2);
+        IBezierCurve b = new QuadraticBezier(p0, p1, p2);
 
         // Act
         Vector2[] results = runCurveEvaluation(b);
@@ -59,7 +59,7 @@ public class BezierSegmentsTests
     public void CubicBezierSegment_WhenEvaluated_CalculatesTheCurveCorrectly()
     {
         // Arrange
-        IBezierCurve b = new CubicBezierSegment(p0, p1, p2, p3);
+        IBezierCurve b = new CubicBezier(p0, p1, p2, p3);
 
         // Act
         Vector2[] results = runCurveEvaluation(b);
@@ -79,11 +79,11 @@ public class BezierSegmentsTests
     {
         var results = new Vector2[5]
         {
-            curve.Evaluate(0f),
-            curve.Evaluate(.25f),
-            curve.Evaluate(.5f),
-            curve.Evaluate(.75f),
-            curve.Evaluate(1f)
+            curve.GetCurvePointAt(0f),
+            curve.GetCurvePointAt(.25f),
+            curve.GetCurvePointAt(.5f),
+            curve.GetCurvePointAt(.75f),
+            curve.GetCurvePointAt(1f)
         };
         return results;
     }

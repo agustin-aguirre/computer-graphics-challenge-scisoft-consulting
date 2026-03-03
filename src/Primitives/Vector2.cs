@@ -40,6 +40,15 @@ public class Vector2
         return v1.X * v2.X + v1.Y * v2.Y;
     }
 
+    public static float Distance(Vector2 v1, Vector2 v2)
+    {
+        return MathF.Sqrt(DistanceSquared(v1, v2));
+    }
+
+    public static float DistanceSquared(Vector2 v1, Vector2 v2)
+    {
+        return Square(v2.X - v1.X) + Square(v2.Y - v2.Y);
+    }
 
     public Vector2() { }
 

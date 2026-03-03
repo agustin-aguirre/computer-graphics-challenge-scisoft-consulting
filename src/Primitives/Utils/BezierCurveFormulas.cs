@@ -1,30 +1,31 @@
 ﻿using static System.MathF;
+using GraphicsEngine.Primitives.Interfaces;
 using static GraphicsEngine.Primitives.Utils.FloatUtils;
 
-namespace GraphicsEngine.Primitives;
+namespace GraphicsEngine.Primitives.Utils;
 
-public static class Bezier
+public static class BezierCurveFormulas
 {
-    public static Vector2 Linear(LinearBezierSegment s, float t)
+    public static Vector2 Linear(ISegment s, float t)
     {
         return s.P0 + Clamp01(t) * (s.P1 - s.P0);
     }
 
-    public static Vector2 Quadratic(QuadraticBezierSegment s, float t)
+    public static Vector2 Quadratic(IQuadraticSegment s, float t)
     {
         t = Clamp01(t);
         float u = 1 - t;
         return Square(u) * s.P0 + 2 * u * t * s.P1 + Square(t) * s.P2;
     }
 
-    public static Vector2 Cubic(CubicBezierSegment s, float t)
+    public static Vector2 Cubic(ICubicSegment s, float t)
     {
         t = Clamp01(t);
         float u = 1 - t;
         return Pow(u, 3) * s.P0 + 3 * Square(u) * t * s.P1 + 3 * u * Square(t) * s.P2 + Pow(t, 3) * s.P3;
     }
 
-    public static Vector2 CubicPrime(CubicBezierSegment s, float t)
+    public static Vector2 CubicPrime(ICubicSegment s, float t)
     {
         t = Clamp01(t);
         float u = 1 - t;
@@ -32,7 +33,7 @@ public static class Bezier
         return 3 * Square(u) * (s.P1 - s.P0) + 6 * u * t * (s.P2 - s.P1) + 3 * Square(t) * (s.P3 - s.P2);
     }
 
-    public static Vector2 CubicSecond(CubicBezierSegment s, float t)
+    public static Vector2 CubicSecond(ICubicSegment s, float t)
     {
         t = Clamp01(t);
         float u = 1 - t;
