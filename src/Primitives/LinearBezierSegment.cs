@@ -1,4 +1,7 @@
-﻿namespace GraphicsEngine.Primitives
+﻿using static GraphicsEngine.Primitives.Utils.FloatUtils;
+
+
+namespace GraphicsEngine.Primitives
 {
     public class LinearBezierSegment
     {
@@ -15,9 +18,7 @@
         public virtual Point2D Evaluate(float t)
         {
             // Clamping t between 0 and 1
-            t = MathF.Min(MathF.Max(t, 0f), 1f);
-            
-            return P0 + t * (P1 - P0);
+            return P0 + Clamp01(t) * (P1 - P0);
         }
     }
 }
