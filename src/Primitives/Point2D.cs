@@ -36,6 +36,36 @@ public class Point2D
         return p0 + -1f * p1;
     }
 
+    public void RoundUp(int decimals)
+    {
+        var roundedPoint = RoundedUp(decimals);
+        X = roundedPoint.X;
+        Y = roundedPoint.Y;
+    }
+
+    public void RoundDown(int decimals)
+    {
+        var roundedPoint = RoundedDown(decimals);
+        X = roundedPoint.X;
+        Y = roundedPoint.Y;
+    }
+
+    public Point2D RoundedUp(int decimals)
+    {
+        return new Point2D(
+            FloatUtils.RoundUp(X, decimals),
+            FloatUtils.RoundUp(Y, decimals)
+        );
+    }
+
+    public Point2D RoundedDown(int decimals)
+    {
+        return new Point2D(
+            FloatUtils.RoundDown(X, decimals),
+            FloatUtils.RoundDown(Y, decimals)
+        );
+    }
+
     public override bool Equals(object? obj)
     {
         return obj is Point2D d &&
