@@ -1,4 +1,5 @@
 ﻿using GraphicsEngine.Primitives.Utils;
+using static GraphicsEngine.Primitives.Utils.FloatUtils;
 
 namespace GraphicsEngine.Primitives;
 
@@ -7,6 +8,38 @@ public class Vector2
     public float X { get; set; } = 0f;
     public float Y { get; set; } = 0f;
 
+    public float Magnitude => MathF.Sqrt(Square(X) + Square(Y));
+
+    public static Vector2 operator +(Vector2 p0, Vector2 p1)
+    {
+        return new Vector2(p0.X + p1.X, p0.Y + p1.Y);
+    }
+
+    public static Vector2 operator *(float k, Vector2 p)
+    {
+        return new Vector2(p.X * k, p.Y * k);
+    }
+
+    public static Vector2 operator *(Vector2 p, float k)
+    {
+        return k * p;
+    }
+
+    public static Vector2 operator -(Vector2 p0, Vector2 p1)
+    {
+        return p0 + -1f * p1;
+    }
+
+    public static float Angle(Vector2 v1, Vector2 v2)
+    {
+        return MathF.Atan2(v2.X - v1.X, v2.Y - v1.Y);
+    }
+
+    public static float Dot(Vector2 v1, Vector2 v2)
+    {
+        return v1.Magnitude * v2.Magnitude * MathF.Cos(Angle(v1, v2));
+    }
+
 
     public Vector2() { }
 
@@ -14,26 +47,6 @@ public class Vector2
     {
         X = x;
         Y = y;
-    }
-
-    public static Vector2 operator + (Vector2 p0, Vector2 p1)
-    {
-        return new Vector2(p0.X + p1.X, p0.Y + p1.Y);
-    }
-
-    public static Vector2 operator * (float k, Vector2 p)
-    {
-        return new Vector2(p.X * k, p.Y * k);
-    }
-
-    public static Vector2 operator * (Vector2 p, float k)
-    {
-        return k * p;
-    }
-
-    public static Vector2 operator - (Vector2 p0, Vector2 p1)
-    {
-        return p0 + -1f * p1;
     }
 
     public void RoundUp(int decimals)
