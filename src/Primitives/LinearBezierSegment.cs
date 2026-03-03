@@ -15,10 +15,14 @@ namespace GraphicsEngine.Primitives
         }
 
 
-        public virtual Point2D Evaluate(float t)
+        public Point2D Evaluate(float t)
         {
-            // Clamping t between 0 and 1
-            return P0 + Clamp01(t) * (P1 - P0);
+            return GetEvaluator()(t);
+        }
+
+        protected virtual Func<float, Point2D> GetEvaluator()
+        {
+            return (float t) => P0 + Clamp01(t) * (P1 - P0); ;
         }
     }
 }
