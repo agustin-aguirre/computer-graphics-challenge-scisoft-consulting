@@ -24,6 +24,11 @@ public class Point2D
         return new Point2D(p.X * k, p.Y * k);
     }
 
+    public static Point2D operator * (Point2D p, float k)
+    {
+        return new Point2D(p.X * k, p.Y * k);
+    }
+
     public static Point2D operator - (Point2D p0, Point2D p1)
     {
         return p0 + -1f * p1;
