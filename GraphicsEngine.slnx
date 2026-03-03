@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="src/Primitives/Primitives.csproj" />
+  <Project Path="tests/PrimitivesTests/PrimitivesTests.csproj" Id="f43b9680-dd2b-4008-ba2c-e2193520f1cb" />
 </Solution>
