@@ -88,6 +88,6 @@ public class Vector2
 
     public override string ToString()
     {
-        return $"Point2D:<{X},{Y}>";
+        return $"Vector2:<{X},{Y}>";
     }
 }
