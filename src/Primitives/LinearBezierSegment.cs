@@ -1,9 +1,10 @@
-﻿using static GraphicsEngine.Primitives.Utils.FloatUtils;
+﻿using GraphicsEngine.Primitives.Interfaces;
+using static GraphicsEngine.Primitives.Utils.FloatUtils;
 
 
 namespace GraphicsEngine.Primitives
 {
-    public class LinearBezierSegment
+    public class LinearBezierSegment : IBezierCurve
     {
         public Point2D P0 { get; set; }
         public Point2D P1 { get; set; }
