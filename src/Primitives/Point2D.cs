@@ -26,11 +26,18 @@ public class Point2D
 
     public static Point2D operator * (Point2D p, float k)
     {
-        return new Point2D(p.X * k, p.Y * k);
+        return k * p;
     }
 
     public static Point2D operator - (Point2D p0, Point2D p1)
     {
         return p0 + -1f * p1;
+    }
+
+    public override bool Equals(object? obj)
+    {
+        return obj is Point2D d &&
+               X == d.X &&
+               Y == d.Y;
     }
 }
