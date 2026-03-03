@@ -1,7 +1,6 @@
-﻿namespace GraphicsEngine.Primitives.Interfaces
+﻿namespace GraphicsEngine.Primitives.Interfaces;
+
+public interface IBezierCurve
 {
-    public interface IBezierCurve
-    {
-        Point2D Evaluate(float t);
-    }
+    Point2D Evaluate(float t);
 }
