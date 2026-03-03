@@ -11,5 +11,10 @@
         {
             return Clamp(value, 0f, 1f);
         }
+
+        public static float Square(float value)
+        {
+            return MathF.Pow(value, 2f);
+        }
     }
 }
