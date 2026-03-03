@@ -1,4 +1,6 @@
-﻿namespace GraphicsEngine.Primitives;
+﻿using GraphicsEngine.Primitives.Utils;
+
+namespace GraphicsEngine.Primitives;
 
 public class Point2D
 {
@@ -39,5 +41,10 @@ public class Point2D
         return obj is Point2D d &&
                X == d.X &&
                Y == d.Y;
+    }
+
+    public override string ToString()
+    {
+        return $"Point2D:<{X},{Y}>";
     }
 }
