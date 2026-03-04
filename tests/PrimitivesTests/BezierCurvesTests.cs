@@ -4,7 +4,7 @@ using GraphicsEngine.Primitives.Interfaces;
 namespace GraphicsEngine.Primitives.Tests;
 
 [TestFixture]
-public class BezierSegmentsTests
+public class BezierCurvesTests
 {
     readonly Vector2 p0 = new Vector2(2.65f, -1.5f);
     readonly Vector2 p1 = new Vector2(8.2f, -1.18f);
