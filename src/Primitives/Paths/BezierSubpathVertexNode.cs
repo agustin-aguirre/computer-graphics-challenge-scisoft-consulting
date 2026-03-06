@@ -6,6 +6,14 @@ public class BezierSubpathVertexNode : IBezierSubpathNode
 {
     public Vector2 Vertex { get; private set; }
 
+    public float Length => 0;
+
+    public float Area => 0;
+
+    public BoundingBox AxisAlignedBounds => throw new NotImplementedException();
+
+    public float Orientation => 0;
+
     public BezierSubpathVertexNode(Vector2 vertex)
     {
         Vertex = vertex;
@@ -48,4 +56,12 @@ public class BezierSubpathVertexNode : IBezierSubpathNode
 
     public float CalcGradientPrime(Vector2 direction, float t)
         => 0;
+
+    public CurvePosition[] Intersect(ISegment segment)
+    {
+        throw new NotImplementedException();
+    }
+
+    public float PointRelativePosition(Vector2 p)
+        => Vertex == p ? 0 : -1;
 }

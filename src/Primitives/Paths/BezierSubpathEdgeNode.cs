@@ -8,6 +8,14 @@ public class BezierSubpathEdgeNode : IBezierSubpathNode
     public ISegment4 Segment { get; private set; }
     public CubicBezierCurve Curve { get; private set; }
 
+    public float Length => throw new NotImplementedException();
+
+    public float Area => throw new NotImplementedException();
+
+    public BoundingBox AxisAlignedBounds => throw new NotImplementedException();
+
+    public float Orientation => throw new NotImplementedException();
+
     public BezierSubpathEdgeNode(ISegment4 segment)
     {
         Segment = segment;
@@ -171,5 +179,15 @@ public class BezierSubpathEdgeNode : IBezierSubpathNode
                 Point = subpathPos
             }
         );
+    }
+
+    public CurvePosition[] Intersect(ISegment segment)
+    {
+        throw new NotImplementedException();
+    }
+
+    public float PointRelativePosition(Vector2 p)
+    {
+        throw new NotImplementedException();
     }
 }
