@@ -1,4 +1,6 @@
-﻿namespace GraphicsEngine.Primitives.Paths;
+﻿using GraphicsEngine.Primitives.Interfaces;
+
+namespace GraphicsEngine.Primitives.Paths;
 
 public class BezierSubpathVertexNode : IBezierSubpathNode
 {
