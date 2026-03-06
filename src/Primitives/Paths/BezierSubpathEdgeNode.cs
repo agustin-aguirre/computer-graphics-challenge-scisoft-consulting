@@ -78,7 +78,7 @@ public class BezierSubpathEdgeNode : IBezierSubpathNode
             float gradient = CalcGradient(direction, t);
             float gradientPrime = CalcGradientPrime(direction, t);
 
-            if (Math.Abs(gradientPrime) < 1e-6f) break; // avoids dividing by cero
+            if (MathF.Abs(gradientPrime) < 1e-6f) break; // avoids dividing by cero
 
             t -= gradient / gradientPrime;
             t = t.Clamp01(); // if t gets clampped, then the closest point is one of the curve extremes
@@ -155,7 +155,7 @@ public class BezierSubpathEdgeNode : IBezierSubpathNode
             s = s.Clamp01();
             t = t.Clamp01();
 
-            if (Math.Abs(ds) < 1e-8 && Math.Abs(dt) < 1e-8) break;  // It converged, so we stop
+            if (MathF.Abs(ds) < 1e-8 && MathF.Abs(dt) < 1e-8) break;  // It converged, so we stop
         }
 
         return new(
