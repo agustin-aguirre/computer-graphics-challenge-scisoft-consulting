@@ -1,8 +1,7 @@
 ﻿namespace GraphicsEngine.Primitives.Interfaces;
 
-public interface IDistanceToCurveResult
+public interface ISubpathPosition
 {
     float T { get; }
     Vector2 Point { get; }
-    float Distance { get; }
 }
