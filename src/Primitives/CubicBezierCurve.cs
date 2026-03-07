@@ -31,8 +31,15 @@ public class CubicBezierCurve
             Vector2.Cross(Segment.P2, Segment.P3)
         );
 
-    public float Orientation
-        => MathF.Sign(Area);
+    public CurveOrientation Orientation
+    {
+        get
+        {
+            float tolerance = 1e-6f;
+            float area = Area;
+            return (CurveOrientation)(MathF.Abs(area) <= tolerance ? 0f : MathF.Sign(area));
+        }
+    }
 
     public CubicBezierCurve(ISegment4 segment)
     {

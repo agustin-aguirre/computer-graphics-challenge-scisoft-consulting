@@ -12,7 +12,7 @@ public class BezierSubpathVertexNode : IBezierSubpathNode
 
     public BoundingBox AxisAlignedBounds => throw new NotImplementedException();
 
-    public float Orientation => 0;
+    public CurveOrientation Orientation => CurveOrientation.None;
 
     public BezierSubpathVertexNode(Vector2 vertex)
     {

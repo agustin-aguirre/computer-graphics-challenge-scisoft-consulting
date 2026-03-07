@@ -16,7 +16,7 @@ public class BezierSubpathEdgeNode : IBezierSubpathNode
 
     public BoundingBox AxisAlignedBounds => throw new NotImplementedException();
 
-    public float Orientation
+    public CurveOrientation Orientation
         => Curve.Orientation;
 
     public BezierSubpathEdgeNode(ISegment4 segment)

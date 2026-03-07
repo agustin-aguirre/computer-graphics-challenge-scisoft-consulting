@@ -8,7 +8,7 @@ public interface IBezierSubpathNode
     float Length { get; }
     float Area { get; }
     BoundingBox AxisAlignedBounds { get; }
-    float Orientation { get; }
+    CurveOrientation Orientation { get; }
     IBezierSubpathNode Copy(SubpathCopyDirection direction);
     CurvePosition Sample(float t);
     CurvePosition SampleDerivative(float t);
