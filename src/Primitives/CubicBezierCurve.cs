@@ -7,6 +7,20 @@ public class CubicBezierCurve
 {
     public ISegment4 Segment { get; private set; }
 
+    public float Length
+    {
+        get
+        {
+            // Applies Gauss-Legendre
+            // .5 * sum(w_i * |B'(x_i)|)
+            return .5f * Calculus.GAUSS_LEGENDER_N5_PWs.Sum((pw) =>
+            {
+                float transformedT = (pw.Item1 + 1f) * .5f;
+                return pw.Item2 * SamplePrime(transformedT).Point.Magnitude;
+            });
+        }
+    }
+
     public CubicBezierCurve(ISegment4 segment)
     {
         Segment = segment;
