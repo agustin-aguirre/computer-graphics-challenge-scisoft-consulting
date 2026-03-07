@@ -5,7 +5,7 @@ namespace GraphicsEngine.Primitives;
 
 public class CubicBezierCurve
 {
-    public ISegment4 Segment { get; private set; }
+    public readonly ISegment4 Segment;
 
     public float Length
     {
@@ -21,12 +21,7 @@ public class CubicBezierCurve
         }
     }
 
-    public CubicBezierCurve(ISegment4 segment)
-    {
-        Segment = segment;
-    }
-
-    public float Area()
+    public float Area
         => (1f / 20) * (
             Vector2.Cross(Segment.P0, Segment.P1) +
             3f * Vector2.Cross(Segment.P0, Segment.P2) +
@@ -35,6 +30,14 @@ public class CubicBezierCurve
             3f * Vector2.Cross(Segment.P1, Segment.P3) +
             Vector2.Cross(Segment.P2, Segment.P3)
         );
+
+    public float Orientation
+        => MathF.Sign(Area);
+
+    public CubicBezierCurve(ISegment4 segment)
+    {
+        Segment = segment;
+    }
 
     public CurvePosition Sample(float t)
         => sample(Bezier.CUBIC, t);
