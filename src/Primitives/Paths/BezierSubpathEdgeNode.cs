@@ -195,9 +195,19 @@ public class BezierSubpathEdgeNode : IBezierSubpathNode
         );
     }
 
-    public CurvePosition[] Intersect(ISegment segment)
+    public IntersectionResult[] Intersect(ISegment segment)
     {
-        throw new NotImplementedException();
+        // Quick aproximation
+        int steps = 40;
+        return Flatten(steps)       // flatten curve into segments
+            .Select(curvePos => curvePos.Item2.Intersect(segment))  // intersect each of those segments with the parameter
+            .Where(intersection => intersection.Points.Length > 0)      // filter those that actually intersect
+            .Aggregate(new List<IntersectionResult>(), (acc, intersection) =>   // accumulate those results
+            {
+                acc.Add(intersection);
+                return acc;
+            })
+            .ToArray();
     }
 
     public float PointRelativePosition(Vector2 p)

@@ -15,6 +15,6 @@ public interface IBezierSubpathNode
     (float, CurvePosition, CurvePosition) ClosestPositions(IBezierSubpathNode subpath);
     float CalcGradient(Vector2 direction, float t);
     float CalcGradientPrime(Vector2 direction, float t);
-    CurvePosition[] Intersect(ISegment segment);
+    IntersectionResult[] Intersect(ISegment segment);
     float PointRelativePosition(Vector2 p);
 }
