@@ -2,5 +2,16 @@
 
 public class BezierPath
 {
-    public List<BezierSubpath> Subpaths;
+    public readonly List<BezierSubpath> Subpaths;
+
+    public BezierPath()
+    {
+        Subpaths = new List<BezierSubpath>();
+    }
+
+    public void Copy(int index)
+    {
+        var newNode = Subpaths.ElementAt(index).Copy();
+        Subpaths.Add(newNode);
+    }
 }

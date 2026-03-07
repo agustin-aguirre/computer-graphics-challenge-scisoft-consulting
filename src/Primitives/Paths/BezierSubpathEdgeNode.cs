@@ -14,7 +14,8 @@ public class BezierSubpathEdgeNode : IBezierSubpathNode
     public float Area
         => Curve.Area;
 
-    public BoundingBox AxisAlignedBounds => throw new NotImplementedException();
+    public BoundingBox AxisAlignedBounds
+        => new BoundingBox(Segment.Points);
 
     public CurveOrientation Orientation
         => Curve.Orientation;
@@ -43,11 +44,9 @@ public class BezierSubpathEdgeNode : IBezierSubpathNode
         return Vector2.Dot(primePoint, primePoint) + Vector2.Dot(direction, Curve.SampleSecond(t).Point);
     }
 
-    public IBezierSubpathNode Copy(SubpathCopyDirection direction)
+    public IBezierSubpathNode Copy()
     {
-        ISegment4 newSegment = direction == SubpathCopyDirection.FORWARD
-            ? new CubicBezierSegment(Segment.P0, Segment.P1, Segment.P2, Segment.P3)
-            : Segment.Reversed;
+        var newSegment = new CubicBezierSegment(Segment.P0, Segment.P1, Segment.P2, Segment.P3);
         return new BezierSubpathEdgeNode(newSegment);
     }
 

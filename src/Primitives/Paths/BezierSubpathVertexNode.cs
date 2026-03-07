@@ -10,7 +10,7 @@ public class BezierSubpathVertexNode : IBezierSubpathNode
 
     public float Area => 0;
 
-    public BoundingBox AxisAlignedBounds => throw new NotImplementedException();
+    public BoundingBox AxisAlignedBounds => new BoundingBox() + Vertex;
 
     public CurveOrientation Orientation => CurveOrientation.None;
 
@@ -19,7 +19,7 @@ public class BezierSubpathVertexNode : IBezierSubpathNode
         Vertex = vertex;
     }
 
-    public IBezierSubpathNode Copy(SubpathCopyDirection direction)
+    public IBezierSubpathNode Copy()
         => new BezierSubpathVertexNode(Vertex);
 
     public CurvePosition Sample(float t)

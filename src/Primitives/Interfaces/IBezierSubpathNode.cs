@@ -1,7 +1,4 @@
-﻿using GraphicsEngine.Primitives.Paths;
-
-namespace GraphicsEngine.Primitives.Interfaces;
-
+﻿namespace GraphicsEngine.Primitives.Interfaces;
 
 public interface IBezierSubpathNode
 {
@@ -9,7 +6,7 @@ public interface IBezierSubpathNode
     float Area { get; }
     BoundingBox AxisAlignedBounds { get; }
     CurveOrientation Orientation { get; }
-    IBezierSubpathNode Copy(SubpathCopyDirection direction);
+    IBezierSubpathNode Copy();
     CurvePosition Sample(float t);
     CurvePosition SampleDerivative(float t);
     CurvePosition SampleSecondDerivative(float t);

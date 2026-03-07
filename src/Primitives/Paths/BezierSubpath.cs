@@ -6,6 +6,11 @@ public class BezierSubpath
 {
     public List<IBezierSubpathNode> Nodes;
 
+    public BezierSubpath(IEnumerable<IBezierSubpathNode> nodes)
+    {
+        Nodes = nodes.ToList();
+    }
+
     public CurvePosition ClosestPosition(Vector2 p)
     {
         float minDistance = float.MaxValue;
@@ -27,6 +32,11 @@ public class BezierSubpath
         return result;
     }
 
+    public BezierSubpath Copy()
+    {
+        var newNodes = Nodes.Select(n => n.Copy());
+        return new BezierSubpath(newNodes);
+    }
 
     public (float, CurvePosition, CurvePosition) ClosestPositions(BezierSubpath subpath)
     {
