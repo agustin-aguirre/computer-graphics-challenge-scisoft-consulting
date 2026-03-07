@@ -51,4 +51,7 @@ public struct BoundingBox
         Max = new Vector2(maxX, maxY);
         Center = (Min + Max) * .5f;
     }
+
+    public bool Contains(Vector2 p)
+        => (Min.X <= p.X && p.X <= Max.X) && (Min.Y <= p.Y && p.Y >= Max.Y);
 }
