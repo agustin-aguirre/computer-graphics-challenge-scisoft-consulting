@@ -14,4 +14,28 @@ public class BezierPath
         var newNode = Subpaths.ElementAt(index).Copy();
         Subpaths.Add(newNode);
     }
+
+    public void Move(int index, int offset)
+    {
+        if (offset + index > Subpaths.Count)
+            throw new ArgumentOutOfRangeException();
+        BezierSubpath node = Subpaths.ElementAt(index);
+        Subpaths.RemoveAt(index);
+        Subpaths.Insert(index + offset, node);
+    }
+
+    public void Move(BezierSubpath subpath, int offset)
+        => Move(Subpaths.IndexOf(subpath), offset);
+
+    public void Forward(int index)
+        => Move(index, 1);
+
+    public void Forward(BezierSubpath subpath)
+        => Move(subpath, 1);
+
+    public void Backward(int index)
+        => Move(index, -1);
+
+    public void Backward(BezierSubpath subpath)
+        => Move(subpath, -1);
 }
