@@ -35,6 +35,18 @@ public class BezierSubpathEdgeNode : IBezierSubpathNode
     public CurvePosition SampleSecondDerivative(float t)
         => Curve.SampleSecond(t);
 
+    public IEnumerable<(float, ISegment)> Flatten(int steps)
+    {
+        Vector2 prev = Curve.Segment.P0;
+        for (int i = 1; i < steps; i++)
+        {
+            float t = i / steps;
+            Vector2 current = Sample(t).Point;
+            yield return (t, new Segment(prev, current));
+            prev = current;
+        }
+    }
+
     public float CalcGradient(Vector2 direction, float t)
         => Vector2.Dot(direction, Curve.SamplePrime(t).Point);
 
