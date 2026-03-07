@@ -8,13 +8,16 @@ public class BezierSubpathEdgeNode : IBezierSubpathNode
     public ISegment4 Segment { get; private set; }
     public CubicBezierCurve Curve { get; private set; }
 
-    public float Length => throw new NotImplementedException();
+    public float Length 
+        => Curve.Length;
 
-    public float Area => throw new NotImplementedException();
+    public float Area
+        => Curve.Area;
 
     public BoundingBox AxisAlignedBounds => throw new NotImplementedException();
 
-    public float Orientation => throw new NotImplementedException();
+    public float Orientation
+        => Curve.Orientation;
 
     public BezierSubpathEdgeNode(ISegment4 segment)
     {

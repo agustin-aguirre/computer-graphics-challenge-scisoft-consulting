@@ -52,10 +52,10 @@ public class BezierSubpathVertexNode : IBezierSubpathNode
     }
 
     public float CalcGradient(Vector2 direction, float t)
-        => 0;
+        => 0f;
 
     public float CalcGradientPrime(Vector2 direction, float t)
-        => 0;
+        => 0f;
 
     public CurvePosition[] Intersect(ISegment segment)
     {
