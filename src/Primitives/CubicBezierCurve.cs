@@ -26,6 +26,15 @@ public class CubicBezierCurve
         Segment = segment;
     }
 
+    public float Area()
+        => (1f / 20) * (
+            Vector2.Cross(Segment.P0, Segment.P1) +
+            3f * Vector2.Cross(Segment.P0, Segment.P2) +
+            6f * Vector2.Cross(Segment.P0, Segment.P3) +
+            3f * Vector2.Cross(Segment.P1, Segment.P2) +
+            3f * Vector2.Cross(Segment.P1, Segment.P3) +
+            Vector2.Cross(Segment.P2, Segment.P3)
+        );
 
     public CurvePosition Sample(float t)
         => sample(Bezier.CUBIC, t);
