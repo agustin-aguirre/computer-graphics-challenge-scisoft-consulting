@@ -25,6 +25,9 @@ public class CubicBezierSegment : ISegment4
     public ISegment S3
         => new Segment(P2, P3);
 
+    public ISegment[] Segments 
+        => [S1, S2, S3];
+
     public CubicBezierSegment(Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3)
     {
         P0 = p0;
@@ -39,5 +42,27 @@ public class CubicBezierSegment : ISegment4
         P1 = P2;
         P2 = P1;
         P3 = P0;
+    }
+
+    public IntersectionResult Intersect(ISegment other)
+    {
+        var points = new List<Vector2>();
+        var positions = new List<(float, float)>();
+
+        Segments.
+            Select(s => s.Intersect(other)).
+            Where(result => result.Points.Length > 0).
+            Aggregate((points, positions), (acc, intersection) =>
+            {
+                acc.points.AddRange(intersection.Points);
+                acc.positions.AddRange(intersection.Positions);
+                return acc;
+            });
+        
+        return new IntersectionResult()
+        {
+            Points = points.ToArray(),
+            Positions = positions.ToArray()
+        };
     }
 }

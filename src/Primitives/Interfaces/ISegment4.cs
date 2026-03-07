@@ -7,6 +7,7 @@ public interface ISegment4 : ISegment
     ISegment S1 { get; }
     ISegment S2 { get; }
     ISegment S3 { get; }
+    ISegment[] Segments { get; }
     ISegment4 Reversed { get; }
     void Reverse();
 }
