@@ -14,7 +14,7 @@ public class BezierSubpathEdgeNode : IBezierSubpathNode
     public float Area
         => Curve.Area;
 
-    public BoundingBox AxisAlignedBounds
+    public BoundingBox Bounds
         => new BoundingBox(Segment.Points);
 
     public CurveOrientation Orientation

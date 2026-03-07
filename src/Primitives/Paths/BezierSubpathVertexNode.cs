@@ -12,7 +12,7 @@ public class BezierSubpathVertexNode : IBezierSubpathNode
     public float Area 
         => 0;
 
-    public BoundingBox AxisAlignedBounds 
+    public BoundingBox Bounds 
         => new BoundingBox() + Vertex;
 
     public CurveOrientation Orientation 
