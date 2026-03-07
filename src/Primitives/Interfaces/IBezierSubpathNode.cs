@@ -1,4 +1,6 @@
-﻿namespace GraphicsEngine.Primitives.Interfaces;
+﻿using GraphicsEngine.Primitives.Paths;
+
+namespace GraphicsEngine.Primitives.Interfaces;
 
 public interface IBezierSubpathNode
 {
@@ -16,5 +18,5 @@ public interface IBezierSubpathNode
     float CalcGradient(Vector2 direction, float t);
     float CalcGradientPrime(Vector2 direction, float t);
     IntersectionResult[] Intersect(ISegment segment);
-    float PointRelativePosition(Vector2 p);
+    PointInPathResult BoundaryPosition(Vector2 p);
 }

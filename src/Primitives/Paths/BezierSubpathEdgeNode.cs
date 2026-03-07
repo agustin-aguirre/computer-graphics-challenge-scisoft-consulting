@@ -210,8 +210,27 @@ public class BezierSubpathEdgeNode : IBezierSubpathNode
             .ToArray();
     }
 
-    public float PointRelativePosition(Vector2 p)
+    public PointInPathResult BoundaryPosition(Vector2 p)
     {
-        throw new NotImplementedException();
+        float tolerance = 1e-4f;
+
+        // If the point its in one of the extremes of the curve, then its along
+        if (Curve.Segment.P0.Equals(p) || Curve.Segment.P3.Equals(p)) return PointInPathResult.Along;
+        
+        // If its not contained in the bounding box, then its definetly outside
+        if (!Bounds.Contains(p)) return PointInPathResult.Outside;
+
+        // If its very close to the curve itself, then we can aproximate it as along the edge
+        float distanceToCurve = ClosestPosition(p).Item1;
+        if (MathF.Abs(distanceToCurve) <= tolerance) return PointInPathResult.Along;
+
+        // Raycast along the x axis
+        ISegment ray = new Segment(new Vector2(Bounds.Min.X, p.Y), p);
+        var curveIntersections = Intersect(ray);
+
+        // If we intersected an even number of times, then the point is outsided. Otherwise, inside.
+        return (curveIntersections.Length % 2 == 0)
+            ? PointInPathResult.Outside
+            : PointInPathResult.Inside;
     }
 }
