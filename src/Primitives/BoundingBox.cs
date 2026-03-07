@@ -11,6 +11,27 @@ public struct BoundingBox
     public readonly Vector2 Center;
     public readonly Vector2 Max;
 
+
+    /// <summary>
+    /// Offsets a bounding box
+    /// </summary>
+    public static BoundingBox operator + (BoundingBox b, Vector2 offset)
+        => new BoundingBox([b.Min + offset, b.Max + offset]);
+
+    /// <summary>
+    /// Scales a bounding box
+    /// </summary>
+    public static BoundingBox operator * (BoundingBox b, float scale)
+        => new BoundingBox([b.Min * scale, b.Max * scale]);
+
+
+    public BoundingBox()
+    {
+        Min = new Vector2();
+        Center = new Vector2();
+        Max = new Vector2();
+    }
+
     public BoundingBox(IEnumerable<Vector2> points)
     {
         float minX = float.MaxValue;
