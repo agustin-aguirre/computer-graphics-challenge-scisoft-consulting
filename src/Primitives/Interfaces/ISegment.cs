@@ -1,4 +1,6 @@
-﻿namespace GraphicsEngine.Primitives.Interfaces;
+﻿using GraphicsEngine.Primitives.Results;
+
+namespace GraphicsEngine.Primitives.Interfaces;
 
 public interface ISegment
 {

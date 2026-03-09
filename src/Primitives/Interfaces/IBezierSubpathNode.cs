@@ -1,4 +1,4 @@
-﻿using GraphicsEngine.Primitives.Paths;
+﻿using GraphicsEngine.Primitives.Results;
 
 namespace GraphicsEngine.Primitives.Interfaces;
 

@@ -1,5 +1,6 @@
 ﻿using GraphicsEngine.Primitives.Interfaces;
 using GraphicsEngine.Primitives.Math;
+using GraphicsEngine.Primitives.Results;
 
 namespace GraphicsEngine.Primitives.Paths;
 
