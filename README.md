@@ -3,6 +3,7 @@
 ### By Agustín Aguirre.
 
 Main Classes:
+
 • 2D Points             -> Vector2
 
 • Position              -> Curve Position
