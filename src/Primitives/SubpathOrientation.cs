@@ -1,4 +1,4 @@
-﻿namespace GraphicsEngine.Primitives.Interfaces;
+﻿namespace GraphicsEngine.Primitives;
 
 public enum SubpathOrientation
 {
