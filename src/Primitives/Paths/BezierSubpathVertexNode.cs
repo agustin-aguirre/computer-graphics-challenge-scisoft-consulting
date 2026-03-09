@@ -94,8 +94,8 @@ public class BezierSubpathVertexNode : IBezierSubpathNode
         ];
     }
 
-    public PointInPathResult BoundaryPosition(Vector2 p)
+    public PointInCurveResult BoundaryPosition(Vector2 p)
         => Vertex.Equals(p)
-            ? PointInPathResult.Along
-            : PointInPathResult.Outside;
+            ? PointInCurveResult.Along
+            : PointInCurveResult.Outside;
 }

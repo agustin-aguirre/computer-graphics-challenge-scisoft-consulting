@@ -18,5 +18,5 @@ public interface IBezierSubpathNode
     float CalcGradient(Vector2 direction, float t);
     float CalcGradientPrime(Vector2 direction, float t);
     IntersectionResult[] Intersect(ISegment segment);
-    PointInPathResult BoundaryPosition(Vector2 p);
+    PointInCurveResult BoundaryPosition(Vector2 p);
 }
