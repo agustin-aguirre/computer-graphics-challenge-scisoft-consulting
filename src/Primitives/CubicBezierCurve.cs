@@ -3,6 +3,10 @@ using GraphicsEngine.Primitives.Math;
 
 namespace GraphicsEngine.Primitives;
 
+
+/// <summary>
+/// A Cubic Bezier Curve
+/// </summary>
 public class CubicBezierCurve
 {
     public readonly ISegment4 Segment;

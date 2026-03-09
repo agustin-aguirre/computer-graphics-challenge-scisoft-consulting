@@ -2,6 +2,10 @@
 
 namespace GraphicsEngine.Primitives.Paths;
 
+
+/// <summary>
+/// Composed of doubly-linked list of IBezierSubpathNodes, wich can be either vertices or edges
+/// </summary>
 public class BezierSubpath
 {
     public List<IBezierSubpathNode> Nodes;

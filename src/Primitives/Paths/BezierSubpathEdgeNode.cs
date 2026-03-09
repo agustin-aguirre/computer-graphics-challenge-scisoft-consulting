@@ -3,6 +3,9 @@ using GraphicsEngine.Primitives.Math;
 
 namespace GraphicsEngine.Primitives.Paths;
 
+/// <summary>
+/// An edge subpath node
+/// </summary>
 public class BezierSubpathEdgeNode : IBezierSubpathNode
 {
     public ISegment4 Segment { get; private set; }

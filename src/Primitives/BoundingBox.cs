@@ -3,7 +3,7 @@
 namespace GraphicsEngine.Primitives.Interfaces;
 
 /// <summary>
-/// Axis Aligned Bounding Box (AABB)
+/// An Axis Aligned Bounding Box (AABB)
 /// </summary>
 public struct BoundingBox
 {

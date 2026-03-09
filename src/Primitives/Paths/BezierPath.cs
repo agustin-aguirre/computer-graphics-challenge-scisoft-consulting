@@ -1,5 +1,8 @@
 ﻿namespace GraphicsEngine.Primitives.Paths;
 
+/// <summary>
+/// A bezier path composed of subpaths
+/// </summary>
 public class BezierPath
 {
     public readonly List<BezierSubpath> Subpaths;

@@ -2,6 +2,10 @@
 
 namespace GraphicsEngine.Primitives;
 
+
+/// <summary>
+/// The combination of 4 segments, representing the control points of a Cubic Bezier Curve.
+/// </summary>
 public class CubicBezierSegment : ISegment4
 {
     public Vector2 P0 { get; private set; }

@@ -2,6 +2,10 @@
 
 namespace GraphicsEngine.Primitives.Paths;
 
+
+/// <summary>
+/// A vertex subpath node
+/// </summary>
 public class BezierSubpathVertexNode : IBezierSubpathNode
 {
     public Vector2 Vertex { get; private set; }
