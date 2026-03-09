@@ -2,8 +2,8 @@
 
 
 /// <summary>
-/// Representation of all the intersecting points of a pair of bezier segments
-/// Points contains all the intersected points
+/// Representation of all the intersecting points of a pair of bezier segments.
+/// Points contains all the intersected points.
 /// Positions contains the position in S1 and S2 at wich the intersection was detected.
 /// Both Points and Positions must be of equal length.
 /// No Points or Positions means, the segments are parallel
